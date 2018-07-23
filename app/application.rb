@@ -24,11 +24,10 @@ class Application
       end
     elsif req.path.match(/add/)
       search_term = req.params["item"]
-
       if @@items.include?(search_term)
         resp.write "added #{search_term}"
       else
-        resp.write "Couldn't find #{search_term}"
+        resp.write "We don't have that item"
       end
     else
       resp.write "Path Not Found"
